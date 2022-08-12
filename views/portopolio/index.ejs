@@ -1,0 +1,24 @@
+<title><%= title %></title>
+
+<center><h1>Portopolio</h1></center>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    +add
+</button>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <%- include("component/dataTable") %> 
+</table> 
+
+<%- include("component/form") %> 

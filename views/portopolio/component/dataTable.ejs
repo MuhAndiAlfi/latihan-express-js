@@ -1,0 +1,12 @@
+
+<tbody>        
+    <% data.forEach(function(data){ %>
+        <tr>
+            <th scope="row"><%= data.id %></th>
+            <td><%= data.title %></td>
+            <td><%= data.description %></td>
+            <td><%= data.img %></td>
+            <td>edit | delete</td>
+        </tr>  
+    <% }); %> 
+</tbody>
