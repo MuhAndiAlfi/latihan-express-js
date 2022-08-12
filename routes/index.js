@@ -4,13 +4,16 @@ const axios = require('axios').default;
 
 const address = "http://localhost:5000"
 
-const controllers = require('../app/controller')
+const controllers = require('../app/controller');
+const app = require('..');
 const portopolio = controllers.portopolio
+const blog = controllers.blogs
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.render('home/index', {title: 'home'});
 });
+
 router.get('/portopolio', function (req, res, next) {
 
     axios
@@ -30,5 +33,26 @@ router.get('/api/portopolio/:id', portopolio.getById)
 router.post('/api/portopolio', portopolio.create)
 router.put('/api/portopolio/:id', portopolio.update)
 router.delete('/api/portopolio/:id', portopolio.delete)
+
+// router.get('/blog', function (req, res, next) {
+
+//     axios
+//         .get(address + '/api/blog')
+//         .then(function (response) {
+//             console.log(response.data);
+//             res.render('blog/index', {title: 'Blog', data: response.data});
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         });
+
+// })
+
+
+// router.get('/api/blog', blog.show)
+// router.get('/api/blog/:id', blog.getById)
+// router.post('/api/blog', blog.create)
+// router.put('/api/blog/:id', blog.update)
+// router.delete('/api/blog/:id', blog.delete)
 
 module.exports = router;
