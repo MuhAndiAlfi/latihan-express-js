@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Portopolio.init({
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
-    img: DataTypes.TEXT,
+    image: DataTypes.TEXT,
     type: DataTypes.STRING
   }, {
     sequelize,

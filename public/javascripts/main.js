@@ -1,15 +1,51 @@
-var url = "/api/portopolio";
+var url = "/api/";
 
-function getIdEdit(data){
-    $("#form-edit").empty();
-    var id = data
+function addData(surl) {
+    // var data = $('#form-add').serialize();
+    var form = $('#form-add')[0]
+    var data = new FormData(form)
 
     $.ajax({
-        url: url+'/'+ id,
+        url: url + surl,
+        type: 'POST',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success: function (response) {
+            alert('berhasil');
+            console.log(data)
+            window
+                .location
+                .reload()
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+function checkContent(type){
+    var content = $('#form-edit').data('content');
+    if (content == 'portopolio'){
+        $('#type').append('<label for="editInputEmail1" class="form-label">Type</label>'+
+        '<input type="text" name="type" class="form-control" id="editInputEmail1" value="'+ type +'" aria-describedby="emailHelp" required>'
+        )
+    }
+}
+
+function getIdEdit(data, surl) {
+    $("#form-edit").empty();
+    var id = data        
+
+    $.ajax({
+        url: url + surl + '/' + id,
         type: 'get',
         data: data,
         success: function (response) {
-            $("#form-edit").append('<form id="editformPortopolio" method="post">'+
+            
+            $("#form-edit").append('<form id="editform" method="post">'+
             '<div class="mb-3">'+
                 '<label for="editInputEmail1" class="form-label">Judul</label>'+
                 '<input type="text" name="title" class="form-control" id="editInputEmail1" value="'+ response.title +'" aria-describedby="emailHelp" required>'+
@@ -22,67 +58,54 @@ function getIdEdit(data){
                 '<label for="formFileSm" class="form-label">Small file input edit</label>'+
                 '<input class="form-control form-control-sm" name="img" id="formFileSm" type="file">'+
             '</div>'+
-            '<div class="mb-3">'+
-                '<label for="editInputEmail1" class="form-label">Type</label>'+
-                '<input type="text" name="type" class="form-control" id="editInputEmail1" value="'+ response.type +'" aria-describedby="emailHelp" required>'+
+            '<div class="mb-3" id="type">'+
             '</div>'+
-            '<a href="#" class="btn btn-primary" id="editbtnPortopolio">submit</a>'+
+            '<a class="btn btn-primary" id="editbtn" onclick=editData('+response.id+')>submit</a>'+
         '</form>')
-            // console.log(response.id)
+        checkContent(response.type)
+
         }
     })
 }
 
-function deleteData(data){
+function editData(id) {
+    var data = $('#editform').serialize();
+    var surl = $('#form-edit').data('content');
+
+    $.ajax({
+        url: url + surl + '/' + id,
+        type: 'PUT',
+        data: data,
+        success: function (response) {
+            alert('berhasil');
+            window
+                .location
+                .reload();
+        }
+    })
+
+}
+
+function deleteData(data, surl) {
     var id = data
     var res = confirm("are u sure delete this?")
 
-    if (res){
+    if (res) {
         $.ajax({
-            url: url+'/'+id,
+            url: url + surl+ '/' + id,
             type: 'DELETE',
             success: function (response) {
                 alert('berhasil');
-                window.location.reload();
+                window
+                    .location
+                    .reload();
             }
         })
-    }else{
-        window.location.reload();
+    } else {
+        window
+            .location
+            .reload();
 
     }
-    
+
 }
-
-$(function () {
-    
-    $('#btnPortopolio').click(function () {
-        var data = $('#formPortopolio').serialize();
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            success: function (response) {
-                alert('berhasil');
-                window.location.reload();
-            }
-        })
-    })
-
-    $('#editbtnPortopolio').click(function(){
-        var data = $('#editformPortopolio').serialize();
-
-        $.ajax({
-            url: url+'/'+id,
-            type: 'PUT',
-            data: data,
-            success: function (response) {
-                alert('berhasil');
-                window.location.reload();
-            }
-        })
-    })      
-})
-
-
-

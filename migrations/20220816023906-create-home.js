@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Portopolio', {
+    await queryInterface.createTable('Home', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -19,21 +19,17 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT
       },
-      type:{
-        allowNull: true,
-        type: Sequelize.STRING
-      },
       createdAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Portopolio');
+    await queryInterface.dropTable('Home');
   }
 };

@@ -4,21 +4,22 @@
             <th scope="row"><%= data.id %></th>
             <td><%= data.title %></td>
             <td><%= data.description %></td>
-            <td><%= data.img %></td>
+            <td><%= data.image %></td>
+            <td><%= data.type %></td>
             <td>
                 <a
-                    href="/portopolio/<%= data.id %> "
+                    href="/blog/<%= data.id %> "
                     class="btn btn-success"
                     data-bs-toggle="modal"
                     data-bs-target="#editModal"
                     id="edit-<%=data.id%>"
                     data-id="<%= data.id %>"
-                    onclick="getIdEdit(<%= data.id %>);">Edit</a>
+                    onclick="getIdEdit(data=<%= data.id %>, 'blog')">Edit</a>
                 <a
                     href="#"
                     data-method="delete"
                     class="btn btn-danger"
-                    onclick="deleteData(<%= data.id %>)">Delete</a>
+                    onclick="deleteData(<%= data.id %>, 'blog')">Delete</a>
             </td>
         </tr>
         <% }); %>

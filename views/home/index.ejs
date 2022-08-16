@@ -1,2 +1,27 @@
-<title><%- title %></title> 
-hewo
+<title><%= title %></title>
+<center><h1>Home</h1></center>
+
+<script src="javascripts/main.js"></script>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    +add
+</button>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <%- include("component/dataTable") %> 
+</table> 
+
+<%- include("component/form") %> 
+<%- include("component/edit") %> 
+

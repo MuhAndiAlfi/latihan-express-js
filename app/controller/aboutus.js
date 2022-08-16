@@ -3,19 +3,16 @@ const model = require("../model")
 
 module.exports = {
     show(req, res) {
+
         return model
-            .Portopolio
-            .findAll({
-                order: [
-                    ['id', 'ASC']
-                ]
-            })
+            .AboutUs
+            .findAll()
             .then((data) => res.status(200).send(data))
             .catch((error) => res.status(400).send(error))
         },
     getById(req, res) {
         return model
-            .Portopolio
+            .AboutUs
             .findByPk(req.params.id)
             .then((data) => {
                 if (!data) {
@@ -34,18 +31,18 @@ module.exports = {
         const title = req.body.title
         const description = req.body.description
         const image = req.file.originalname
-        const type = req.body.type
 
         const atribute = {
             title: title,
             description: description,
             image: image,
-            type: type,
             createdAt: new Date()
         }
 
+        console.log(atribute)
 
-        return model.Portopolio
+
+        return model.AboutUs
             .findOne({
                 where: {
                     title: title
@@ -55,10 +52,10 @@ module.exports = {
                 if (data) {
                     res
                         .status(400)
-                        .send({message: 'Title Portopolio already taken'})
+                        .send({message: 'Title AboutUs already taken'})
                 } else {
                     model
-                        .Portopolio
+                        .AboutUs
                         .create(atribute)
                         .then((data) => res.status(200).send(data))
                         .catch((error) => res.status(400).send("error bang"));
@@ -72,17 +69,15 @@ module.exports = {
         const title = req.body.title
         const description = req.body.description
         const image = req.file.originalname
-        const type = req.body.type
 
         const atribute = {
             title: title,
             description: description,
             image: image,
-            type: type,
             createdAt: new Date()
         }
 
-        return model.Portopolio
+        return model.AboutUs
             .update(atribute, {
                 where: {
                     id: id
@@ -100,7 +95,7 @@ module.exports = {
     delete(req, res){
         const id = req.params.id
 
-        return model.Portopolio
+        return model.AboutUs
             .destroy({
                 where: {
                     id: id

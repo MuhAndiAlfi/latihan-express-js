@@ -1,7 +1,10 @@
 'use strict';
+
+const { sequelize } = require("../app/model");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Portopolio', {
+    await queryInterface.createTable('AboutUs', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,25 +18,21 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      image:{
+      image: {
         allowNull: true,
         type: Sequelize.TEXT
       },
-      type:{
-        allowNull: true,
-        type: Sequelize.STRING
-      },
       createdAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Portopolio');
+    await queryInterface.dropTable('AboutUs');
   }
 };

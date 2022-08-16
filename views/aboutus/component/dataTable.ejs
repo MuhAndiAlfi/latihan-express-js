@@ -8,18 +8,18 @@
             <td><%= data.type %></td>
             <td>
                 <a
-                    href="/portopolio/<%= data.id %> "
+                    href="/aboutus/<%= data.id %> "
                     class="btn btn-success"
                     data-bs-toggle="modal"
                     data-bs-target="#editModal"
                     id="edit-<%=data.id%>"
                     data-id="<%= data.id %>"
-                    onclick="getIdEdit(data=<%= data.id %>, 'portopolio')">Edit</a>
+                    onclick="getIdEdit(data=<%= data.id %>, 'aboutus')">Edit</a>
                 <a
                     href="#"
                     data-method="delete"
                     class="btn btn-danger"
-                    onclick="deleteData(<%= data.id %>, 'portopolio')">Delete</a>
+                    onclick="deleteData(<%= data.id %>, 'aboutus')">Delete</a>
             </td>
         </tr>
         <% }); %>

@@ -1,7 +1,11 @@
-const portopolio = require('./portopolio')
-const blogs = require('./blog')
+const portopolio = require('./portopolio');
+const blog = require('./blog');
+const aboutus = require('./aboutus');
+const home = require('./home');
 
 module.exports ={
     portopolio,
-    blogs
+    blog,
+    aboutus,
+    home
 }

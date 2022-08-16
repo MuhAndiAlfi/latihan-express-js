@@ -8,24 +8,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="form-add" method="post">
+            <form id="form-add" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Judul</label>
-                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="title" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Deskripsi</label>
-                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" id="description" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label">Small file input example</label>
-                    <input class="form-control form-control-sm" name="uploaded_file" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" name="uploaded_file" id="uploaded_file" type="file">
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Type</label>
-                    <input type="text" name="type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                </div>
-                <a href="#" class="btn btn-primary" id="btn-form" onclick="addData('portopolio')">submit</a>
+                <a href="#" class="btn btn-primary" id="btn-form" onclick="addData('aboutus')">submit</a>
             </form>
         </div>
         <div class="modal-footer">
@@ -34,4 +30,5 @@
       </div>
     </div>
   </div>
-
+  
+  

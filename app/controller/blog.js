@@ -30,10 +30,12 @@ module.exports = {
     create(req, res) {
         const title = req.body.title
         const description = req.body.description
+        const image = req.file.originalname
 
         const atribute = {
             title: title,
             description: description,
+            image: image,
             createdAt: new Date()
         }
 
@@ -64,10 +66,13 @@ module.exports = {
 
         const title = req.body.title
         const description = req.body.description
+        const image = req.file.originalname
+
 
         const atribute = {
             title: title,
             description: description,
+            image: image,
             createdAt: new Date()
         }
 

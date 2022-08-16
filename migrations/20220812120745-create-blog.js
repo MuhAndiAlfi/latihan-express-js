@@ -11,7 +11,7 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      img:{
+      image:{
         allowNull: true,
         type: Sequelize.TEXT
       },
