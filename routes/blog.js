@@ -6,7 +6,7 @@ const blog = controllers.blog
 
 const axios = require('axios').default;
 
-const address = "http://localhost:5000"
+const address = "https://latihan-backend-express.herokuapp.com"  
 
 const multer  = require('multer')
 var storage = multer.diskStorage({
