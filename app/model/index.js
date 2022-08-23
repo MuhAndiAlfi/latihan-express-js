@@ -1,10 +1,6 @@
 'use strict';
 
-const configJS = '/../../config/config.js'
-
-if (process.env.NODE_CONFIGJSON){
-  const configJS = '/../../config/config.json'
-}
+const configJS = '/../../config/config.json'
 
 console.log(configJS)
 
@@ -16,6 +12,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + configJS )[env];
 const db = {};
 
+console.log(env)
 
 let sequelize;
 if (config.use_env_variable) {
