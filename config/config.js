@@ -25,12 +25,7 @@ module.exports={
         username: "nacyrghvefqtst",
         password: "9fa7b4c6c5b0410f962df7b40395fe55a3b9bf027dab5ff513efad76dc14403b",
         port: "5432",
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        },
+        dialect: "postgres",
         url: "postgres://nacyrghvefqtst:9fa7b4c6c5b0410f962df7b40395fe55a3b9bf027dab5ff513efad76dc14403b@ec2-34-203-182-65.compute-1.amazonaws.com:5432/d5dftbegg779gn",
         herokucli: "heroku pg:psql postgresql-defined-65340 --app latihan-backend-express"
     },
