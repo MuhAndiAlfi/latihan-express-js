@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios').default;
 
-const address = "http://localhost:5000"
+const address = process.env.NODE_ENV || "http://localhost:5000"
 
 const multer  = require('multer')
 var storage = multer.diskStorage({
