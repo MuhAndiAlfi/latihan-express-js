@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios').default;
 
-const address = process.env.NODE_ADDRESS || "http://localhost:5000"
+const address = "https://latihan-backend-express.herokuapp.com" || "http://localhost:5000"
 
 const multer  = require('multer')
 var storage = multer.diskStorage({
